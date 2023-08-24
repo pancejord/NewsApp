@@ -15,7 +15,8 @@ const fetchNews = async (
       myQuery(
         access_key: $access_key
         categories: $categories
-        countires: "us"
+        language: "en"
+        countries: "us,"
         sort: "published_desc"
         keywords: $keywords
       ) {
@@ -61,8 +62,6 @@ const fetchNews = async (
       }),
     }
   );
-
-  console.log("loading new data", category, keywords);
 
   const newsResponse = await res.json();
   const news = sortNewsByImage(newsResponse.data.myQuery);
